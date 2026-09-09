@@ -15,3 +15,11 @@ data/db/
 
 # model terlatih & data uji IKUT dikirim (lihat pengecualian di bawah),
 # supaya client cukup clone lalu jalan tanpa training 21 menit
+
+# berkas kerja internal (penyusunan skripsi & uji coba), bukan untuk pengguna akhir
+CLAUDE.md
+laporan_bab5.md
+buat_laporan.py
+demo_kamera.py
+demo_realtime.py
+data/confusion_matrix.png

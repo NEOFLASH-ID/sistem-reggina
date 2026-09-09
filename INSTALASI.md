@@ -224,18 +224,6 @@ emosi, rata-rata tingkat keyakinan, dan sebaran deteksi per jam.
 **Tab Log Deteksi** — daftar rinci setiap deteksi beserta waktu, emosi, dan
 tingkat keyakinannya.
 
-### 5.3 Tampilan tanpa browser (opsional)
-
-Tersedia juga tampilan jendela sederhana yang menampilkan video beserta
-kotak penanda dan label emosi:
-
-**Windows:** `.venv\Scripts\python demo_realtime.py`
-**macOS / Linux:** `.venv/bin/python demo_realtime.py`
-
-Tekan tombol **q** pada jendela video untuk keluar.
-
----
-
 ## 6. Bila Terjadi Masalah
 
 | Gejala | Penyebab dan penanganan |

@@ -1,7 +1,7 @@
 # FER Hotel Smartcam (HOG + SVM)
 
 Skripsi — pengenalan emosi wajah real-time (`happy`/`sad`/`angry`/`neutral`),
-edge computing, semua lokal. Detail rancangan: [CLAUDE.md](CLAUDE.md).
+edge computing, semua lokal. Panduan pemasangan: [INSTALASI.md](INSTALASI.md).
 
 ## Status
 Tahap 1-8 selesai (scaffold, capture, deteksi wajah, HOG, dataset, training,
@@ -31,10 +31,6 @@ Cek modul (tiap file punya self-check di `__main__`):
 ```bash
 python src/db.py
 python -m src.face_detection
-```
-Uji kamera + deteksi wajah, jendela OpenCV (izinkan akses kamera saat diminta macOS):
-```bash
-python demo_kamera.py
 ```
 Jalankan antarmuka:
 ```bash
