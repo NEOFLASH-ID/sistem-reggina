@@ -1,0 +1,7 @@
+# Konfigurasi untuk demo ke pengguna luar: jangan tampilkan stack trace Python
+# di layar mereka, cukup pesan singkat.
+[client]
+showErrorDetails = "none"
+
+[browser]
+gatherUsageStats = false

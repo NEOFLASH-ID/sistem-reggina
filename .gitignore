@@ -1,0 +1,17 @@
+# lingkungan Python — khusus tiap mesin, jangan pernah ikut
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# dataset mentah & hasil praproses: besar, dan lisensinya milik penyedia AffectNet.
+# Client tidak butuh ini untuk menjalankan sistem, hanya untuk melatih ulang.
+data/raw/
+data/processed/
+kecerdasan buatan/
+
+# database berisi log pemakaian tiap mesin; dibuat otomatis saat pertama dijalankan
+data/db/
+
+# model terlatih & data uji IKUT dikirim (lihat pengecualian di bawah),
+# supaya client cukup clone lalu jalan tanpa training 21 menit

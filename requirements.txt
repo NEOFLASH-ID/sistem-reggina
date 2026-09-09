@@ -1,0 +1,10 @@
+altair==5.5.0
+joblib==1.5.3
+matplotlib==3.9.4
+numpy==2.0.2
+opencv-python==4.10.0.84
+pandas==2.3.3
+scikit-image==0.24.0
+scikit-learn==1.6.1
+streamlit==1.50.0
+kagglehub==0.3.13   # hanya untuk mengunduh dataset AffectNet, tidak dipakai saat runtime

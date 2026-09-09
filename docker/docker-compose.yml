@@ -1,0 +1,14 @@
+services:
+  fer-app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8501:8501"
+    # devices:
+    #   - /dev/video0:/dev/video0   # aktifkan di Linux/RasPi; Docker Desktop Mac/Win tidak bisa passthrough webcam
+    volumes:
+      - ../data:/app/data
+      - ../models:/app/models
+    environment:
+      - PYTHONUNBUFFERED=1
