@@ -62,21 +62,36 @@ Daftar pustaka yang akan terpasang:
 
 ## 3. Langkah Instalasi
 
-### 3.1 Salin folder sistem
+### 3.1 Unduh sistem dari GitHub
 
-Letakkan folder sistem di lokasi yang mudah dijangkau, misalnya
-`C:\Users\NamaAnda\Documents\Reggina` (Windows) atau
-`~/Documents/Reggina` (macOS/Linux).
+Sistem tersedia di <https://github.com/NEOFLASH-ID/sistem-reggina>.
 
-Pastikan berkas berikut ikut tersalin, sebab tanpa berkas ini sistem tidak
-dapat mengenali emosi dan harus dilatih ulang selama kurang lebih 21 menit:
+Cara termudah, lewat Terminal (macOS/Linux) atau Command Prompt (Windows).
+Masuk dulu ke folder tempat sistem ingin diletakkan, misalnya `Documents`,
+lalu jalankan:
 
-- `models/svm_model.joblib` — model yang sudah dilatih (96 MB)
-- `data/split_uji.npz` — data uji untuk menampilkan metrik evaluasi (26 MB)
-- `data/db/fer.sqlite3` — basis data riwayat
+```
+git clone https://github.com/NEOFLASH-ID/sistem-reggina.git
+cd sistem-reggina
+```
 
-Folder `.venv` **tidak boleh** ikut disalin dari komputer lain. Folder itu
-berisi berkas khusus komputer asal dan akan menyebabkan galat.
+Unduhan berukuran sekitar 120 MB karena sudah termasuk model yang terlatih,
+sehingga sistem langsung bisa dipakai tanpa proses pelatihan.
+
+Bila perintah `git` belum dikenali, pasang Git lebih dulu dari
+<https://git-scm.com/downloads>. Alternatif tanpa Git: buka halaman GitHub di
+atas, klik tombol hijau **Code**, pilih **Download ZIP**, lalu ekstrak.
+
+**Memperbarui ke versi terbaru.** Bila kelak ada perbaikan, cukup jalankan
+perintah berikut di dalam folder sistem, tanpa perlu memasang ulang apa pun:
+
+```
+git pull
+```
+
+Dataset mentah tidak disertakan karena berukuran besar dan terikat lisensi
+penyedianya. Dataset hanya dibutuhkan bila ingin melatih ulang model, bukan
+untuk menjalankan sistem.
 
 ### 3.2 Buka Terminal di folder sistem
 
