@@ -34,12 +34,29 @@ def muat_fitur(conn=None):
     return np.array(X), np.array(y)
 
 
+def periksa_dataset(X, y, minimal=8):
+    """Pastikan data cukup sebelum training, supaya gagalnya jelas bukan berupa
+    galat numpy yang membingungkan. Kasus tersering: database ikut disalin tapi
+    folder data/processed tidak, sehingga tidak ada citra yang bisa dibaca."""
+    if len(X) < minimal:
+        raise RuntimeError(
+            f"Hanya {len(X)} citra yang bisa dibaca dari dataset (minimal {minimal}). "
+            "Citra latih di folder data/processed tidak ditemukan. Salin folder "
+            "data/raw lalu tekan Ingest, atau gunakan model yang sudah disertakan "
+            "tanpa melatih ulang.")
+    kurang = [l for l in set(y) if list(y).count(l) < 2]
+    if kurang:
+        raise RuntimeError(f"Kelas {kurang} hanya punya 1 citra; tiap kelas butuh "
+                           "minimal 2 agar bisa dibagi menjadi data latih dan uji.")
+
+
 def latih(X, y, conn=None, simpan_ke=MODEL_PATH, cv=5):
     """Split 80:20 stratified -> GridSearchCV -> simpan model + catat akurasi ke tabel `model`.
 
     Mengembalikan (model terbaik, akurasi data uji, parameter terbaik, X_test, y_test).
     X_test/y_test dikembalikan supaya evaluation.py memakai split yang sama persis.
     """
+    periksa_dataset(X, y)
     X_tr, X_te, y_tr, y_te = train_test_split(
         X, y, test_size=0.2, stratify=y, random_state=42)
 

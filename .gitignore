@@ -10,8 +10,11 @@ data/raw/
 data/processed/
 kecerdasan buatan/
 
-# database berisi log pemakaian tiap mesin; dibuat otomatis saat pertama dijalankan
+# database kerja berisi log pemakaian tiap mesin — jangan dilacak supaya
+# `git pull` tidak bentrok. Yang dikirim hanya database bawaan (seed), yang
+# disalin otomatis saat aplikasi pertama dijalankan.
 data/db/
+!data/db/seed.sqlite3
 
 # model terlatih & data uji IKUT dikirim (lihat pengecualian di bawah),
 # supaya client cukup clone lalu jalan tanpa training 21 menit

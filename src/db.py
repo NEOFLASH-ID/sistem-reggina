@@ -1,8 +1,13 @@
 """Koneksi SQLite + inisialisasi skema (BAB IV 4.4.3)."""
+import shutil
 import sqlite3
 from pathlib import Path
 
 DB_PATH = Path(__file__).resolve().parent.parent / "data" / "db" / "fer.sqlite3"
+# Database bawaan berisi ringkasan dataset dan riwayat training, supaya halaman
+# Admin tidak kosong di pemasangan baru. Disalin, bukan dipakai langsung, agar
+# perubahan pemakaian tidak bentrok saat `git pull`.
+SEED_PATH = DB_PATH.parent / "seed.sqlite3"
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS dataset (
@@ -38,6 +43,8 @@ CREATE TABLE IF NOT EXISTS log_deteksi (
 def connect(path=DB_PATH):
     """Buka koneksi, buat skema kalau belum ada. Row hasil query bisa diakses by-name."""
     Path(path).parent.mkdir(parents=True, exist_ok=True)
+    if path == DB_PATH and not DB_PATH.exists() and SEED_PATH.exists():
+        shutil.copy(SEED_PATH, DB_PATH)
     conn = sqlite3.connect(path)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
