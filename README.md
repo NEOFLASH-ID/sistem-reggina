@@ -11,15 +11,10 @@ evaluasi, classifier, logger, UI Streamlit). Sisa: uji end-to-end di Docker.
 AffectNet format YOLO (`fatihkgg/affectnet-yolo-format`), 500 citra per kelas
 untuk 4 kelas dalam scope: happy, sad, angry, neutral.
 
+Hanya perlu bila ingin melatih ulang; model terlatih sudah disertakan.
+
 ```bash
-python -c "import kagglehub; print(kagglehub.dataset_download('fatihkgg/affectnet-yolo-format'))"
-python -c "
-from pathlib import Path
-from src import dataset_manager as dm, db
-P = Path('<path hasil unduhan>')/'YOLO_format/train'
-dm.impor_yolo(P, cap=500)          # salin ke data/raw/<label>/
-dm.ingest(dm.RAW, 'publik', db.connect())
-"
+python siapkan_dataset.py
 ```
 
 ## Jalan lokal (dev di Mac — webcam tidak bisa lewat Docker)

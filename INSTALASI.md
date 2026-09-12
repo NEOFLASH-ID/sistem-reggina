@@ -93,6 +93,18 @@ Dataset mentah tidak disertakan karena berukuran besar dan terikat lisensi
 penyedianya. Dataset hanya dibutuhkan bila ingin melatih ulang model, bukan
 untuk menjalankan sistem.
 
+**Mengambil dataset (opsional).** Bila ingin melatih ulang model atau melihat
+berkas citra latihnya, jalankan satu perintah berikut setelah langkah 4
+selesai. Unduhan sekitar 258 MB dan memakan waktu 2-3 menit:
+
+**Windows:** `.venv\Scripts\python siapkan_dataset.py`
+**macOS / Linux:** `.venv/bin/python siapkan_dataset.py`
+
+Perintah ini mengunduh dataset AffectNet dari Kaggle (tanpa perlu akun),
+menyalin 500 citra per emosi, melakukan praproses, lalu mencatatnya ke
+database. Aman dijalankan berulang kali: citra yang sudah tercatat tidak
+digandakan.
+
 ### 3.2 Buka Terminal di folder sistem
 
 - **Windows:** buka folder di File Explorer, ketik `cmd` pada kolom alamat, tekan Enter.
